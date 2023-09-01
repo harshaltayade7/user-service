@@ -3,7 +3,6 @@ package com.user.controller;
 import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.user.BaseTest;
 import com.user.request.UserRequest;
-import com.user.util.FactoryUtil;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -29,7 +28,7 @@ public class UserControllerTest extends BaseTest {
     @Test
     @SneakyThrows
     public void createUser() {
-        UserRequest request = FactoryUtil.createUserBody();
+        UserRequest request = createUserBody();
         mockMvc.perform(post(USER_SERVICE)
             .contentType(APPLICATION_JSON)
             .content(MAPPER.writeValueAsString(request))
@@ -41,7 +40,7 @@ public class UserControllerTest extends BaseTest {
     @Test
     @SneakyThrows
     public void login() {
-        UserRequest request = FactoryUtil.createUserBody();
+        UserRequest request = createUserBody();
         mockMvc.perform(post(USER_SERVICE+"/login")
             .contentType(APPLICATION_JSON)
             .content(MAPPER.writeValueAsString(request))
