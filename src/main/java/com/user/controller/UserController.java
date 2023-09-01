@@ -18,7 +18,6 @@ public class UserController {
     private final UserService userService;
     private final JwtConfig jwtConfig;
     @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
     public User createUser(@RequestBody @Valid UserRequest userRequest) {
         return userService.createUser(userRequest);
     }

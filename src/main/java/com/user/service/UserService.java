@@ -26,8 +26,7 @@ public class UserService {
     }
 
     public User createUser(UserRequest userRequst) {
-        User response = mongoTemplate.save(userMapper.toUser(userRequst));
-        return response;
+        return mongoTemplate.save(userMapper.toUser(userRequst));
     }
     public String login(UserRequest userRequest) {
         String requestedUserName = userRequest.getUsername();
